@@ -1,0 +1,39 @@
+
+
+
+
+
+
+
+
+#### 对于过大的项目，使用vue默认的打包，打包出来的代码体质往往不能达到我们想要的效果，这个时候就需要利用插件，再对代码进行压缩
+
+
+
+1. 通过 npm install compression-webpack-plugin --save-dev  下载插件
+2. 需要注意， 要下载 5.0.1版本， 其他版本打包会有些问题
+3. 在vue.config.js中进行配置
+
+```javascript
+const CompressionPlugin = require('compression-webpack-plugin');
+const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
+
+module.exports = {
+  chainWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      config.plugin('compressionPlugin')
+        .use(new CompressionPlugin({
+          filename: '[path].gz[query]',
+          algorithm: 'gzip',
+          test: productionGzipExtensions,
+          threshold: 10240,
+          minRatio: 0.8,
+          deleteOriginalAssets: true
+        }));
+    }
+  },
+}
+```
+
+4. 执行   npm run build 进行打包， 打包完成后如果文件中有 .gz的文件就代码成功， 可以查看体质， 打包后的项目体质明显比原来更小，大约一半左右
+5. 打包后的项目进行部署，需要后端配合设置

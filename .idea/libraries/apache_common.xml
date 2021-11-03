@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="apache-common包">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/后端/1_课件/第2部分：Java高级编程/尚硅谷_宋红康_第13章_IO流/apache-common包/commons-lang-2.6-src.zip!/" />
+      <root url="jar://$PROJECT_DIR$/后端/1_课件/第2部分：Java高级编程/尚硅谷_宋红康_第13章_IO流/apache-common包/commons-lang3-3.6-src.zip!/" />
+      <root url="jar://$PROJECT_DIR$/后端/1_课件/第2部分：Java高级编程/尚硅谷_宋红康_第13章_IO流/apache-common包/commons-codec-1.10-bin.zip!/" />
+      <root url="jar://$PROJECT_DIR$/后端/1_课件/第2部分：Java高级编程/尚硅谷_宋红康_第13章_IO流/apache-common包/commons-io-2.5-bin.zip!/" />
+      <root url="jar://$PROJECT_DIR$/后端/1_课件/第2部分：Java高级编程/尚硅谷_宋红康_第13章_IO流/apache-common包/commons-io-2.5-src.zip!/" />
+      <root url="jar://$PROJECT_DIR$/后端/1_课件/第2部分：Java高级编程/尚硅谷_宋红康_第13章_IO流/apache-common包/commons-codec-1.10-src.zip!/" />
+      <root url="jar://$PROJECT_DIR$/后端/1_课件/第2部分：Java高级编程/尚硅谷_宋红康_第13章_IO流/apache-common包/commons-lang3-3.6-bin.zip!/" />
+      <root url="jar://$PROJECT_DIR$/后端/1_课件/第2部分：Java高级编程/尚硅谷_宋红康_第13章_IO流/apache-common包/commons-lang-2.6-bin.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

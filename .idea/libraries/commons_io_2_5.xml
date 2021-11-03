@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="commons-io-2.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/后端/1_课件/第2部分：Java高级编程/尚硅谷_宋红康_第13章_IO流/apache-common包/commons-io-2.5/commons-io-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/后端/1_课件/第2部分：Java高级编程/尚硅谷_宋红康_第13章_IO流/apache-common包/commons-io-2.5/commons-io-2.5-javadoc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

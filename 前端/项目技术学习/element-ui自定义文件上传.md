@@ -1,0 +1,146 @@
+
+
+
+
+# element-ui自定义文件上传
+
+
+
+
+
+#### Upload组件一些参数说明
+
+| 参数          | 说明                                                         | 类型                      | 可选值 | 默认值 |
+| :------------ | :----------------------------------------------------------- | :------------------------ | :----- | :----- |
+| action        | 必选参数，上传的地址                                         | string                    | —      | —      |
+| headers       | 设置上传的请求头部                                           | object                    | —      | —      |
+| on-change     | 文件状态改变时的钩子，添加文件、上传成功和上传失败时都会被调用 | function(file, fileList)  | —      | —      |
+| before-upload | 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。 | function(file)            | —      | —      |
+| before-remove | 删除文件之前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止删除。 | function(file, fileList)  | —      | —      |
+| http-request  | 覆盖默认的上传行为，可以自定义上传的实现                     | function(data)            | —      | —      |
+| limit         | 最大允许上传个数                                             | number                    | —      | —      |
+| on-exceed     | 文件超出个数限制时的回调                                     | function(files, fileList) | —      | -      |
+| accept        | 限定文件上传的文件类型  例如 accept=".xlsx,.xls"             | 文本类型的数据            |        |        |
+
+
+
+#### 自定义文件上传
+
+> 使用element-ui自定义上传文件的步骤: 1.将自动上传关闭 :auto-upload="false。 2.通过 http-request 覆盖默认的上传行为。 3.在http-request指定的回调中,获取到上传的文件对象。  4.将文件对象添加进FromData中. 5.将文件对象发送到后端
+
+- **FormData对象**
+
+  > FormData对象:存储`键值对`的对象,类型于map对象. FormData对象，可以把所有表单元素的name与value组成一个queryString,提交到后台。
+  >
+  > *注:文件上传都是把文件对象存储在FromData中,然后发送到后端*
+
+  - FormData对象中存储的是一个键值对,键是string类型,值只能是`blob`(文件对象)或者是一个字符串
+  - 创建一个FromData对象,然后通过`append()` 方法将数据添加进对象中,该方法接收一个*键值对*: 键: `String`类型的值, 值: 可以是一个`blob`(文件流)或者是一个字符串
+  - **注意:FormData是一个特殊的对象,直接通过`console.log`打印时,是打印不出来的**
+
+- **将FromDate对象发送到服务器**
+
+  - 将FromData放入到Post请求的请求体中,然后在请求头中添加 headers: {"Content-Type": "multipart/form-data"},指定传输的类型是FromData即可
+
+
+- 代码实现
+
+  ```vue
+  <template>
+        <el-upload
+              class="upload-demo"
+              ref="upload"
+              action=""
+              :http-request="myUploadFile"
+              :on-remove="handleRemove"
+              :on-change="handlChange"
+              :on-exceed="handlExceed"
+              :file-list="fileList"
+              :limit="1"
+              accept=".xlsx,.xls"
+              :auto-upload="false">
+           <el-button slot="trigger" size="small" type="success">选取文件</el-button>
+           <div slot="tip" class="el-upload__tip">只能上传xls/xlsx文件</div>
+        </el-upload>
+  </template>
+  
+  <script>
+  
+  
+  import {importorder} from "@/api/infra/order";
+  
+  export default {
+     name: 'TemplateImport',
+     data() {
+        return {
+           //提交Loading
+           submitLoading: false,
+           fileList: []
+        };
+     },
+     methods: {
+        /**
+         * 文件删除回调
+         */
+        handleRemove(file, fileList) {
+           this.fileList = fileList;
+        },
+  
+        /**
+         * 选择文件时回调
+         */
+        handlChange(file, fileList) {
+           this.fileList = fileList;
+        },
+        /**
+         * 文件提交回调
+         * @param data
+         */
+        myUploadFile(data) {
+           let file = data.file;
+           let formData = new FormData();
+           formData.append("file", file);
+           const loading = this.$loading({
+              lock: true,
+              text: '订单导入中',
+           });
+           importorder(formData).then(res => {
+              loading.close();
+              this.submitLoading = false;
+              this.$confirm('', '导入成功', {
+                 confirmButtonText: '确定',
+                 type: 'success',
+                 showCancelButton: false,
+                 closeOnClickModal: false,
+                 center: true
+              })
+           }).catch(() => {
+              loading.close();
+              this.submitLoading = false;
+           })
+        },
+  
+        /**
+         * 导入按钮触发
+         */
+        submitUpload() {
+           this.submitLoading = true
+           if (this.fileList.length <= 0) {
+              this.$message.error("请先选择上传文件")
+              this.submitLoading = false;
+              return;
+           }
+      	//触发 el-upload上传
+           this.$refs.upload.submit(); //如果:http-request=""指定了回调函数,则会覆盖默认的上传,会流入到http-request的回调中
+        },
+        /**
+         * 超出上传个数回调
+         */
+        handlExceed() {
+           this.$message.error("只能选择一个文件进行上传")
+        },
+     }
+  };
+  </script>
+  
+  ```

@@ -1,13 +1,5 @@
 # ES6中的异步编程
 
-### Promise对象
-
-
-
-
-
-
-
 ### async await
 
 > async await 是ES6中新的异步编程方案, 它是 Generator 函数的语法糖。

@@ -1,0 +1,128 @@
+<!DOCTYPE html><html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="http://127.0.0.1:6806/stage/build/export/base.css?1.5.4"/>
+    <link rel="stylesheet" type="text/css" id="themeStyle" href="http://127.0.0.1:6806/appearance/themes/Knowledge Brain/theme.css?1.5.4"/>
+    <style>
+        body {background-color: transparent;color: var(--b3-theme-on-background);}
+        a {color: var(--b3-theme-primary);}
+        .b3-typography, .protyle-wysiwyg, .protyle-title {font-size:16px !important}
+.b3-typography code:not(.hljs), .protyle-wysiwyg code:not(.hljs) { font-variant-ligatures: none }
+.li > .protyle-action {height:34px;line-height: 34px}
+.protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h4, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h5, .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h6 {line-height:34px;}
+.protyle-wysiwyg [data-node-id].li > .protyle-action:after {height: 16px;width: 16px;margin:-8px 0 0 -8px}
+.protyle-wysiwyg [data-node-id].li > .protyle-action svg {height: 14px}
+.protyle-wysiwyg [data-node-id] [spellcheck="false"] {min-height:26px}
+.protyle-wysiwyg .li {min-height:34px}
+.protyle-gutters button svg {height:26px}
+        body {background-color: var(--b3-theme-background)}
+    </style>
+</head>
+<body>
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs>
+  <symbol id="iconCopy" viewBox="0 0 32 32">
+    <path d="M22.545-0h-17.455c-1.6 0-2.909 1.309-2.909 2.909v20.364h2.909v-20.364h17.455v-2.909zM26.909 5.818h-16c-1.6 0-2.909 1.309-2.909 2.909v20.364c0 1.6 1.309 2.909 2.909 2.909h16c1.6 0 2.909-1.309 2.909-2.909v-20.364c0-1.6-1.309-2.909-2.909-2.909zM26.909 29.091h-16v-20.364h16v20.364z"></path>
+  </symbol>
+</svg>
+<div class="b3-typography" style="max-width: 712px;margin: 0 auto;" id="preview"><h1 id="ES6中的异步编程">ES6中的异步编程</h1>
+<h3 id="async-await">async await</h3>
+<blockquote>
+<p>async await 是ES6中新的异步编程方案, 它是 Generator 函数的语法糖。</p>
+</blockquote>
+<ul>
+<li id="20211129155830-anvgy0y">
+<p><em><strong>async</strong></em></p>
+<ul>
+<li id="20211129155830-d35rp4k">
+<p><strong><code>async</code>有什么作用?</strong></p>
+<ul>
+<li id="20211129155830-a4yidwp">
+<p><code>async</code>作为一个关键字放在函数的前面，表示该函数是一个异步函数，意味着该函数的执行不会阻塞后面代码的执行 异步函数的调用跟普通函数一样</p>
+</li>
+<li id="20211129155830-nplk6zq">
+<p><code>async</code>函数会返回一个 Promise 对象。</p>
+</li>
+<li id="20211129155830-00ryeu3">
+<p><code>async</code>函数内部<code>return</code>语句返回的值，会成为<code>then</code>方法回调函数的参数</p>
+</li>
+<li id="20211129155830-3hop6s0">
+<p><code>async</code>函数内部抛出错误，会导致返回的 Promise 对象变为<code>reject</code>状态。抛出的错误对象会被<code>catch</code>方法回调函数接收到。</p>
+</li>
+</ul>
+</li>
+<li id="20211129155830-nw77378">
+<p>怎么使用<code>async</code></p>
+<ul>
+<li id="20211129155830-l7phe1i">
+<p>在函数前面添加<code>async</code>关键字</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="20211129155830-mjpx3mn">
+<p><em><strong>await</strong></em></p>
+<ul>
+<li id="20211129155830-7kgd5ne">
+<p><strong><code>await</code>有什么作用?</strong></p>
+</li>
+<li id="20211129155830-yazfl9w">
+<p><strong>如果使用<code>await</code>?</strong></p>
+</li>
+<li id="20211129155830-7nmkcbc">
+<p><code>await</code>翻译为等待,该关键字只能用于<code>async</code>函数中,用于等待一个异步函数执行完成</p>
+</li>
+<li id="20211129155830-zij1u10">
+<p><code>await</code>命令后面如果是一个 Promise 对象，那么返回该对象的结果。如果不是 Promise 对象，就直接返回对应的值。</p>
+</li>
+<li id="20211129155830-fy4ao6u">
+<p><code>await</code>命令后面的 Promise 对象如果变为<code>reject</code>状态，则<code>reject</code>的参数会被<code>catch</code>方法的回调函数接收到。</p>
+</li>
+<li id="20211129155830-tsyfzci">
+<p>任何一个<code>await</code>语句后面的 Promise 对象变为<code>reject</code>状态，那么整个<code>async</code>函数都会中断执行。</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<script src="http://127.0.0.1:6806/stage/build/export/protyle-method.js?1.5.4"></script>
+<script src="http://127.0.0.1:6806/stage/protyle/js/lute/lute.min.js?1.5.4"></script>    
+<script src="http://127.0.0.1:6806/stage/protyle/js/html2canvas.min.js?1.5.4"></script>    
+<script>
+    window.siyuan = {
+      config: {
+        appearance: { mode: 0, codeBlockThemeDark: "base16/dracula", codeBlockThemeLight: "nnfx-light" },
+        editor: { 
+          codeSyntaxHighlightLineNum: true,
+          mathEngine: "KaTeX"
+        }
+      },
+      languages: {copy:"复制"}
+    };
+    const previewElement = document.getElementById('preview');
+    Protyle.codeRender(previewElement);
+    Protyle.highlightRender(previewElement);
+    Protyle.mathRender(previewElement, undefined, false);
+    Protyle.mermaidRender(previewElement);
+    Protyle.flowchartRender(previewElement);
+    Protyle.graphvizRender(previewElement);
+    Protyle.chartRender(previewElement);
+    Protyle.mindmapRender(previewElement);
+    Protyle.abcRender(previewElement);
+    Protyle.plantumlRender(previewElement);
+    Protyle.mediaRender(previewElement);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+            writeText(item.parentElement.nextElementSibling.textContent.trimEnd());
+            item.setAttribute("aria-label", "已复制");
+            event.preventDefault();
+            event.stopPropagation();
+      })
+    });
+    
+</script></body></html>

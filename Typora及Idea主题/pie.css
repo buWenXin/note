@@ -523,14 +523,22 @@ h4 {
 
 /* --- 四级标题左边的小短线 --- */
 h4::before {
-    display: inline-block;
-    width: 6px;
-    height: 2px;
-    margin-right: 8px;
-    margin-bottom: 0.18em;
-    vertical-align: middle;
-    content: "";
-    background-color: var(--main-4);
+    /*display: inline-block;*/
+    /*width: 10px;*/
+    /*height: 4px;*/
+    /*margin-right: 10px;*/
+    /*margin-bottom: 0.18em;*/
+    /*vertical-align: middle;*/
+    /*content: "";*/
+    /*background-color: var(--main-4);*/
+    content: "#";
+    color: #42b983;
+    position: absolute;
+    left: -0.8em;
+    margin-top: 0.08em;
+    font-size: 1.3em;
+    line-height: 1;
+    font-weight: bold;
 }
 
 h5 {

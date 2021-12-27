@@ -341,7 +341,7 @@ html {
 body {
     margin: 0;
     overflow-x: hidden;
-    font-family: "Source Sans Pro", "等距更纱黑体 SC", "Helvetica Neue", Arial,
+    /*font-family: "Source Sans Pro", "等距更纱黑体 SC", "Helvetica Neue", Arial,*/
     sans-serif !important;
     line-height: 1.8rem;
     color: var(--mid-10);
@@ -479,33 +479,6 @@ h1::after {
     border-bottom: 2px dashed var(--main-6);
 }
 
-h2 {
-    padding-left: 6px;
-    margin: 2em auto 1.4em;
-    font-size: 1.6em;
-    line-height: 1.4;
-    border-left: 6px solid var(--main-6);
-}
-
-h3 {
-    margin: 1.6em auto 1.2em;
-    font-size: 1.35em;
-    line-height: 1.43;
-}
-
-/* --- 三级标题左边的小圆点 --- */
-h3::before {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    margin-right: 6px;
-    margin-bottom: 0.18em;
-    line-height: 1.43;
-    vertical-align: middle;
-    content: "";
-    background-color: var(--main-5);
-    border-radius: 50%;
-}
 
 /* 三级四级标题点击后左边的提示图标 */
 #write > h3.md-focus::before,
@@ -516,30 +489,6 @@ h3::before {
     background-color: var(--main-5);
 }
 
-h4 {
-    margin-top: 1.4em;
-    font-size: 1.2em;
-}
-
-/* --- 四级标题左边的小短线 --- */
-h4::before {
-    /*display: inline-block;*/
-    /*width: 10px;*/
-    /*height: 4px;*/
-    /*margin-right: 10px;*/
-    /*margin-bottom: 0.18em;*/
-    /*vertical-align: middle;*/
-    /*content: "";*/
-    /*background-color: var(--main-4);*/
-    content: "#";
-    color: #42b983;
-    position: absolute;
-    left: -0.8em;
-    margin-top: 0.08em;
-    font-size: 1.3em;
-    line-height: 1;
-    font-weight: bold;
-}
 
 h5 {
     font-size: 1em;
@@ -556,7 +505,7 @@ ul,
 ol,
 dl,
 table {
-    margin: 0.8em 0;
+    margin: 0.2em 0;
 }
 
 li > ol,
@@ -636,29 +585,6 @@ ol:last-child {
     margin-bottom: 0;
 }
 
-/* --- 引用块 --- */
-
-blockquote {
-    color: #304455;
-    border-radius: 2px;
-    padding: 10px 16px;
-    background-color: #fdefee;
-    position: relative;
-    border-left: none;
-}
-
-/*quote block*/
-blockquote:before {
-    display: block;
-    position: absolute;
-    content: "";
-    width: 4px;
-    left: 0;
-    top: 0;
-    height: 100%;
-    background-color: rgb(233, 95, 89);
-    border-radius: 2px;
-}
 
 /* blockquote {
   position: relative;
@@ -776,7 +702,8 @@ tt {
     margin: 0 2px;
     font-family: Roboto Mono, Source Sans Pro, "Microsoft YaHei", "微软雅黑" !important;
     font-size: 0.92rem;
-    color: var(--main-5);
+    /*color: var(--main-5);*/
+    color: orangered;
     background-color: var(--main-1);
     border-radius: 3px;
 }
@@ -1104,6 +1031,7 @@ footer {
     color: #f07178;
 }
 
+
 .cm-s-inner .cm-tag {
     color: #ff5370;
 }
@@ -1145,18 +1073,19 @@ footer {
 #write strong {
     /*color: #f66b06;*/
     color: orangered;
-    padding: 0 2px;
-    font-size: 1.1rem;
+    padding: 0 3px;
+    /*font-size: 1.1rem;*/
+    font-weight: bold;
+    font-size: 1.14em;
 }
 
 /* 斜体 */
 #write em {
-    padding: 0 4px;
-    color: #1083fc;
-    /*color: #2435f5;*/
-    /*color: #3295fc;*/
-    /*color: #1ab394;*/
-
+    padding: 0 2px;
+    /*color: #1083fc;*/
+    color: orangered;
+    font-size: 1.05em;
+    font-weight: bold;
     font-style: normal;
 }
 
@@ -1164,5 +1093,84 @@ footer {
 ul li::marker {
     color: #ea554f;
     font-size: 1.2em;
+    font-weight: bold;
 }
 
+ol li::marker {
+    color: #ea554f;
+    font-weight: bold;
+}
+
+/* --- 引用块 --- */
+
+blockquote {
+    color: #304455;
+    text-indent: 2em;
+    border-radius: 2px;
+    padding: 10px;
+    background-color: #fdefee;
+    position: relative;
+    border-left: none;
+}
+
+h2 {
+    /*padding-left: 6px;*/
+    margin: 2em auto 1.4em;
+    font-size: 1.6em;
+    line-height: 1.4em;
+    /*border-left: 6px solid var(--main-6);*/
+    border-bottom: 2px solid orangered;
+    padding-bottom: 10px;
+}
+
+h3 {
+    margin: 1.6em auto 1.2em;
+    margin-left: 0.6em;
+    font-size: 1.45em;
+    line-height: 1.43;
+}
+
+h4 {
+    margin-top: 1.4em;
+    font-size: 1.4em;
+}
+
+/* --- 三级标题左边的小圆点 --- */
+h3::before {
+    content: "#";
+    /*color: #42b983;*/
+    color: var(--main-6);;
+    position: absolute;
+    left: -0.6em;
+    margin-top: 0.08em;
+    font-size: 1.3em;
+    line-height: 1;
+    font-weight: bold;
+}
+
+/* --- 四级标题左边的小短线 --- */
+h4::before {
+    content: "#";
+    color: #42b983;
+    position: absolute;
+    left: -0.8em;
+    margin-top: 0.08em;
+    font-size: 1.3em;
+    line-height: 1;
+    font-weight: bold;
+}
+
+h2::before {
+    content: "";
+    width: 6px;
+    /*color: #42b983;*/
+    /*color: var(--main-6);*/
+    background-color: var(--main-6);
+    height: 1.1em;
+    position: absolute;
+    left: -0.5em;
+    /*margin-top: 0.08em;*/
+    font-size: 1.3em;
+    line-height: 1;
+    font-weight: bold;
+}

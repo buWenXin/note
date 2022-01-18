@@ -1,5 +1,3 @@
-[TOC]
-
 # 一、SpringMVC简介
 
 ### 1、什么是MVC

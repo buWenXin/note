@@ -7,7 +7,8 @@
 1. 创建一个Maven项目,并添加SpringMVC的依赖和将Maven打包方式设置为war
 2. 为项目添加JavaWeb项目支持，并配置servlet和前端控制器的映射
 3. 添加一个Controller的软件包，并在resources中添加SpringMVC配置文件，开始组件扫描
-4. 启动项目
+4. 配置Tomcat服务器
+5. Tomcat版本为 Tomcat 8.5.73
 
 
 

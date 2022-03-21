@@ -1,0 +1,5 @@
+com.clutcher.comments_highlighter
+com.intellij.zh
+com.mallowigi
+com.shen.plugin.element
+izhangzhihao.rainbow.brackets

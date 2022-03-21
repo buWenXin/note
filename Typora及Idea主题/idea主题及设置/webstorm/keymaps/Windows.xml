@@ -1,0 +1,12 @@
+<keymap version="1" name="Windows 副本" parent="$default">
+  <action id="AddToFavoritesPopup" />
+  <action id="EditorDuplicateLines">
+    <keyboard-shortcut first-keystroke="shift alt down" />
+  </action>
+  <action id="MoveLineDown" />
+  <action id="ReformatCode">
+    <keyboard-shortcut first-keystroke="shift alt f" />
+  </action>
+  <action id="XDebugger.MoveWatchDown" />
+  <action id="context.load" />
+</keymap>

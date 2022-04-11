@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app{
+      height: 1800px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="app">
+  
+  </div>
+  <script> 
+  // 实现一个防抖函数
+  // 防抖函数
+  // 在函数被调用时,延长n秒后再执行,如果在这个时间内函数被再次触发,则从新延时执行
+  // 实现原理 利用闭包 和 利用定时器，如果在限定的事件内没有再次触发函数就执行回调
+  
+  // 实现一个节流函数
+  // 函数节流
+  // 函数被频繁调用时,让函数安装固定的频率去执行
+  // 实现原型 利用闭包和时间戳，用现在的时间减去旧的时间,如果大于限定时间就执行回调,并且更新旧的时间
+ 
+   let arr = [1,2,3,4,5,1,2,3,4,5]
+   let arr2 = []
+    arr.forEach(item=>{
+      console.log(item);
+    })
+  </script>
+</body>
+</html>

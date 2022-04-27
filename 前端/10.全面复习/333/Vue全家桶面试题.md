@@ -116,9 +116,6 @@
 - Vue-router的路由模式有哪些?它们有什么区别?
     - hash 模式  history模式  还有一个Abstract模式 
     - hash模式和history都是基于浏览器内置的api接口来实现,它们的区别是, hash模式会有一个#号, 而history没有,不过使用history模式时,如果进入二级页面会出现404页面,
-- Vue-router的属性有哪些?
-    - mode 配置路由模式
-    - routers 配置路由映射
 - router和route的区别是什么?
     - router是路由实例， route是当前路由对象
 - 怎么重定向页面?

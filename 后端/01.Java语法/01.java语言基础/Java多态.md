@@ -8,7 +8,7 @@
 
 #### java 类的多态
 
-> 多态指的是,在声明时是声明了一个父类类型,但是实际传入时,可以传入一个子类,并且如果子类重写了父类中的方法,那么在调用时,就会调用的是子类重写后的方法   *即:声明是父类类型,可以传入一个子类,如果子类有重写父类的方法,在调用时就会调用子类重写的方法*
+> 多态：**在声明时是声明了一个父类类型,但是实际传入时,可以传入一个它的子类类型**
 
 ```java
 //父类
@@ -17,59 +17,23 @@ class Proson {
         System.out.println("我是Prosn");
     }
 }
-//继承类
+//Proson的继承类 子类
 class SuperMan extends Proson {
     @Override
     void show() {
         System.out.println("我是超人");
     }
 }
-//多态的体现
-public class Test02 {
-    @Test
-    public void test() {
-        //声明为父类,但是可以传入一个父类的继承类
-        Proson proson = new SuperMan();
-        //此时调用的是传入子类中重写的方法
-        proson.show(); //输出 "我是超人"
-        //即:声明是父类类型,但是传入了一个子类,如果子类有重写父类的方法,在调用时就会调用子类重写的方法
-    }
-}
+```
 
-//继承类2
-class SuperWoman extends Proson {
-    @Override
-    void show() {
-        System.out.println("我是女超人");
-    }
+```java
+//定义的是一个父类类型
+void getTest(Proson proson) {
+    proson.show();
 }
-
-/**
- * 在打架,要求来一个人
- */
-class Fight {
-    private Proson proson;
-    //要求传入一个人的对象,或者人的子类
-    Fight(Proson proson) {
-        this.proson = proson;
-    }
-    void nowFight() {
-        proson.show();
-    }
-}
-//多态的作用
-public class Test02 {
-    @Test
-    public void test2() {
-        SuperMan superMan = new SuperMan();
-        SuperWoman superWoman = new SuperWoman();
-        //1.传入男超人
-        Fight fight = new Fight(superMan);
-        fight.nowFight(); //输出  我是男超人
-        //2.传入女超人
-        Fight fight2 = new Fight(superMan);
-        fight2.nowFight(); //输出  我是女超人
-    }
+//使用:在使用的时候可以传入它的子类类型
+void test() {
+    getTest(new SuperMan());//输出 我是超人
 }
 ```
 
